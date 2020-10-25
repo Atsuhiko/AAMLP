@@ -17,7 +17,7 @@ def run(fold):
     # drop the label column from dataframe and convert it to
     # a numpy array by using .values.
     # target is label column in the dataframe
-    x_train = df_train.drop("label", axis=1).value
+    x_train = df_train.drop("label", axis=1).values
     y_train = df_train.label.values
     
     # similarly, for validation, we have
