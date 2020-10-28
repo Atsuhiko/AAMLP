@@ -1,3 +1,7 @@
+import os
+#下は今回作成したパッケージ
+import config
+
 import joblib
 import pandas as pd
 from sklearn import metrics
@@ -5,11 +9,10 @@ from sklearn import tree
 
 def run(fold):
     # read the training data with folds
-    df = pd.read_csv("../input/mnist_train_folds.csv")
+    df = pd.read_csv(config.TRAINING_FILE)
    
     # training data is where kfold is not equal to provided fold
     # also, note that we reset the index
-    #a != b a が b と異なる
     df_train = df[df.kfold != fold].reset_index(drop=True)
    
     # validation data is where kfold is equal to provided fold
